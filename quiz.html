@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Internet slang words</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Added link to the jQuery Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!--Added link to the css style sheet -->
+    <link rel="stylesheet" type="text/css" href="./style.css">
+
+    <!--Added link to the Google fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Bungee+Shade|K2D|Pavanam|Ubuntu" rel="stylesheet">
+
+    <!-- Bring in our bootstrap stylesheet -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+
+<body>
+    <header>
+        <div id="quiz-header" class="clearfix">
+            <div id="title-2"> English Internet Slang</div>
+            <div id="display">00:00</div>
+
+        </div>
+    </header>
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-md-2">
+            </div>
+
+            <div class="col-md-8">
+
+                <section class="show-questions">
+                    <p class="title-question">Question <span id="question-number"></span>:</p>
+                    <p id="example" class="title-example"></p>
+                    <p id="question" class="title-each-question"></p>
+                </section>
+
+                <section class="show-options">
+                    <input type="radio" name="radAnswer" id="choice-check1" onclick="checkAnswer()">&nbsp&nbsp<span id="choice1"></span><br>
+                    <input type="radio" name="radAnswer" id="choice-check2" onclick="checkAnswer()">&nbsp&nbsp<span id="choice2"></span><br>
+                    <input type="radio" name="radAnswer" id="choice-check3" onclick="checkAnswer()">&nbsp&nbsp<span id="choice3"></span><br>
+                    <input type="radio" name="radAnswer" id="choice-check4" onclick="checkAnswer()">&nbsp&nbsp<span id="choice4"></span><br>
+                </section>
+
+                <section class="show-response">
+                    <span id="response"></span><span id="response2"></span>
+                </section>
+
+                <section class="show-nextbtn">
+                    <button id="next" onclick="nextQuestion()">Next</button>
+                </section>
+
+                <section id="show-score" class="clearfix">
+                    <div id="title-correct"> correct:
+                        <span id="correct"></span>
+                    </div>
+                    <div id="title-incorrect">incorrect:
+                        <span id="incorrect"></span>
+                    </div>
+                </section>
+
+                <div id="completed-img" class="hidden"><img src="./images/img03.png" /></div>
+                <div id="incompleted-img" class="hidden"><img src="./images/img02.png" /></div>
+                <audio id="ring-01">
+                    <source src="./media/ring-01.mp3" type="audio/mp3"></audio>
+                <audio id="ring-02">
+                    <source src="./media/ring-02.mp3" type="audio/mp3"></audio>
+                <audio id="ring-03">
+                    <source src="./media/ring-03.mp3" type="audio/mp3"></audio>
+                <audio id="ring-04">
+                    <source src="./media/ring-04.mp3" type="audio/mp3"></audio>
+                <audio id="ring-05">
+                    <source src="./media/ring-05.mp3" type="audio/mp3"></audio>
+            </div>
+
+            <div class="col-md-2">
+                <div id="icon-img"><img src="./images/img01.png" /></div>
+                <div id="time-left"></div>
+            </div>
+
+        </div>
+
+        <div class="row">
+        </div>
+
+    </div>
+
+
+
+    <!--Added link to the JavaScript -->
+    <script type="text/javascript" src="./script.js"></script>
+
+</body>
+
+
+</html>

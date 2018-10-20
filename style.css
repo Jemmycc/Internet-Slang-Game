@@ -1,0 +1,367 @@
+.row {
+        box-sizing: border-box;      
+}
+    html,
+    body {
+        padding: 0;
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        background-repeat: repeat;
+        background-size: cover;
+        height: 100%;
+        color: rgb(66, 66, 66);
+    }
+
+    /*header*/
+    header {
+        width: 100%;
+        height: auto;
+        background: #538cc2;
+        padding: 10px;
+        margin-bottom: 30px;
+        position: fixed;
+        color: #fff;
+        letter-spacing: 8px;
+        text-align: center;
+        position: relative; 
+        
+    }
+    #title {
+        font-family: 'Bungee Shade', cursive;
+        padding: 10px;
+        font-weight: 500;
+    }
+    #add {
+        font-family: 'Ubuntu', sans-serif;
+        letter-spacing: 5px;
+        line-height: 19px;
+    }
+    /*main -text*/
+    .first-intro {
+        position: relative;
+        width: 100%;
+        height: auto;
+        margin-top: 35px;
+    }
+    #intro-text1 {
+        font-family: 'Share Tech Mono', monospace;
+        margin-top: 25px; 
+        margin-left: 25px;
+        font-size: 26px;
+        padding-bottom: 20px;
+        line-height: 33px;
+    }
+    #intro-text2 {
+        font-family: 'Ubuntu', sans-serif;
+        letter-spacing: 2px;
+        margin:10px;
+        margin-left: 50px;
+        margin-right: 20px;
+        font-weight: bolder;
+        color: rgb(88, 86, 86);
+        background-color: #d1d1d1;
+        padding:25px;
+        text-align: right;
+        width: 80%;
+        height: auto;
+        float: right;
+        margin-bottom: 40px;
+   }
+    .second-intro {
+        width: 100%;
+        height: auto;
+    }
+    #intro-text3 {
+        font-family: 'K2D', sans-serif;
+        letter-spacing: 1px;
+        color: rgb(66, 66, 66);
+        font-size: 18px;
+        line-height: 22px;
+    }
+    #intro-text4 {
+        margin-top: 30px;
+        font-size: 22px;
+        font-family: 'Ubuntu', sans-serif;
+        font-weight: bolder;
+        letter-spacing: 1px;
+    }
+    #intro-text5 {
+        font-family: 'K2D', sans-serif;
+         margin-top: 15px;
+    }
+
+    /*quiz header*/
+    #title-2 {
+        position: relative;
+        float: left;
+        font-family: 'Bungee Shade', cursive;
+        font-size: 28px;
+        padding: 10px;
+    }
+    #display {
+        font-family: 'Share Tech Mono', monospace;
+        margin: 25px 30px 10px auto; 
+        font-size: 32px;
+        line-height: 33px;
+        float: right; 
+    }
+
+
+    /* Enter btn */
+   .enter-btn {
+        float: right;
+        padding-top: 15px;
+        padding-bottom: 50px;
+        margin-right: 80px;
+        width: 110px;
+        height: 12px;
+        background-color: rgba(238, 236, 234, 0.8);
+        cursor: pointer;
+        border-width:3px;
+        border-bottom-style:outset;
+        font-family: 'Share Tech Mono', monospace;
+        transition: all 0.5s; 
+        font-size: 25px;
+        color: rgb(90, 90, 90);
+        margin-bottom: 10px;
+   }
+    .enter-btn:hover {
+        background:#fff;
+        background-color: rgb(245, 192, 94);
+        width: 188px;
+        height: 35px;
+        align-content: initial;
+    }
+    /* Enter btn text */
+    .enter-btn span {
+        transition: 0.5s;  
+    }
+    .enter-btn:hover span {
+        font-weight: bold;
+        letter-spacing: 3px;
+        color: rgb(66, 66, 66);
+    }
+    footer {
+        background: #538cc2;
+        color: #ccc;
+        font-size: 10px;
+        letter-spacing: 2px;
+        padding: 10px;
+        margin-top: 30px;
+        text-align: center;
+        position: fixed;
+        width: 100%;
+        left: 0;
+        bottom: 0;
+    }
+
+
+    /*quiz page*/
+    .show-questions { 
+        background: #f1f2f3;
+        margin-left:0;
+        margin-right: 40px;
+        margin-bottom: 25px;
+        width: 500px;
+        height: 250px; 
+        padding: 15px 15px 30px 45px;
+        /* border: 2px solid rgb(114, 114, 114); */
+        border-bottom-right-radius: 75px;
+        border-top-right-radius: 75px;
+        border-top-left-radius: 75px;
+    }
+
+    .show-options {
+        background: #dededf;
+        margin-left: 180px;
+        margin-right: 0;
+        width: 555px;
+        height: 220px;
+        padding: 23px 18px 30px 50px;
+        border-bottom-left-radius: 75px;
+        border-top-right-radius: 75px;
+        border-top-left-radius: 75px;
+        font-family: 'Ubuntu', sans-serif;
+        font-size: 20.5px;
+        letter-spacing: 1px;line-height: 31px;
+    }
+    
+  .show-response {
+        background: #b9ddcf;
+        width: 550px;
+        height: 110px;
+        margin-bottom:25px;
+        margin-top: 30px;
+        border-bottom-right-radius: 25px;
+        border-top-right-radius: 25px;
+        border-top-left-radius: 25px;
+        padding: 15px 15px 15px 20px;
+  }
+  .show-nextbtn {
+        width: auto;
+        height:50px;
+        margin-bottom:60px;
+  }
+  .title-question{
+      font-family: 'Ubuntu', sans-serif;
+      font-size: 22px;
+  }
+  #question-number {
+      font-family: 'Ubuntu', sans-serif;
+      font-size: 26px;
+      font-weight: bold;
+  }
+  .title-example{
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 28px;
+    line-height: 34px;
+  }
+  .title-each-question {
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+  }
+
+  #response {
+        font-family: 'K2D', sans-serif;
+        margin-top:30px; 
+        letter-spacing: 2px;
+        color: rgb(66, 66, 66);
+        font-size: 21px;
+        line-height: 25px;
+        color: #f84214;
+  }
+
+  /*Next Btn*/
+  #next {
+        float: right;
+        padding-top: 12px;
+        padding-bottom: 45px;
+        width: 280px;
+        height: 10px;
+        background-color: rgba(238, 236, 234, 0.8);
+        cursor: pointer;
+        border-width:3px;
+        border-bottom-style:outset;
+        font-family: 'Share Tech Mono', monospace;
+        transition: all 0.5s; 
+        font-size: 25px;
+        color: rgb(90, 90, 90);
+    }
+    #next:hover {
+        color: #fff;
+        background-color: rgba(187, 187, 187, 0.8);
+     }
+
+     /*score*/
+    .clearfix::after {
+        content: "";
+        display: block;
+        clear: both;
+    }
+    #show-score {
+        position: relative;
+        float: left;
+        width: 100%;
+        height: auto;
+        background-color: rgba(190, 191, 192, 0.5);
+        margin: 5px;
+        font-family: 'Share Tech Mono', monospace;
+        font-size: 24px;
+  }
+    #title-correct {
+        position: relative;
+        float: left;
+        width: 253px;
+        height: 80px;
+        background: #fff;
+        margin: 30px;
+        padding-top: 8px;
+        padding-left: 20px;
+        margin-left: 60px; 
+        border-bottom: 1px solid rgb(98, 98, 99);
+    }
+   #title-incorrect {
+        position: relative;
+        float: left;
+        width: 253px;
+        height: 80px;
+        background: #fff;
+        margin: 30px;
+        padding-top: 8px;
+        padding-left: 20px;
+        margin-left: 60px; 
+        border-bottom: 1px solid rgb(98, 98, 99);
+  }
+  
+  #correct {
+    margin-left: 10px;
+    margin-top: 100px;
+    padding-top: 60px;
+    font-size: 40px;
+    color: rgb(250, 185, 65);
+  }
+
+  #incorrect {
+    margin-left: 10px;
+    margin-top: 100px;
+    padding-top: 60px;
+    font-size: 40px;
+    color:rgb(250, 185, 65);
+  }
+  
+
+  /*image*/
+  
+#icon-img {
+    position: fixed;
+    vertical-align: bottom;
+    width: 30%;
+}
+
+#icon-img {
+    bottom: 0;
+    right: 3%;
+}
+
+/*time-left*/
+#time-left {
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 22px;
+    font-weight: bold;
+    color: rgb(228, 35, 35);
+}
+
+/*completed & incompleted images*/
+
+#incompleted-img {
+    position: fixed;
+    vertical-align: bottom;
+    width: 80%;
+}
+
+#incompleted-img {
+    top: 20%;
+    left: 30%;
+}
+
+#completed-img {
+    position: fixed;
+    vertical-align: bottom;
+    width: 80%;
+}
+
+#completed-img {
+    top: 15%;
+    left: 25%;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+.unhidden {
+    visibility: visible;
+}
+
