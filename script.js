@@ -1,96 +1,3 @@
-//set up count donw timmer
-
-document.getElementById('display').innerHTML =
-    01 + ":" + 30;
-startTimer();
-
-function startTimer() {
-    var presentTime = document.getElementById('display').innerHTML;
-    var timeLeft = document.getElementById("time-left");
-    var timeArray = presentTime.split(/[:]+/);
-    var incompletedImg = document.getElementById("incompleted-img");
-    var m = timeArray[0];
-    var s = checkSecond((timeArray[1] - 1));
-
-    if (s == 59) { m = m - 1 }
-    //if(m<0){alert('timer completed')}
-    document.getElementById('display').innerHTML = m + ":" + s;
-
-    if (isGameOver == true)
-        return;
-
-    if (m == 0 && s == 0) {
-        timeLeft.textContent = "Time-up!";
-        playAudio("ring-05");
-        incompletedImg.className = "unhidden";
-        return;
-    }
-
-    if (m == 1 && s == 0) {
-        timeLeft.textContent = "1 minute left!";
-        setTimeout(function () { timeLeft.textContent = "" }, 3000);
-    }
-    else if (m == 0 && s == 30) {
-        timeLeft.textContent = "30 seconds left!";
-        setTimeout(function () { timeLeft.textContent = "" }, 3000);
-    }
-
-    setTimeout(startTimer, 1000);
-}
-
-
-function checkSecond(sec) {
-    if (sec < 10 && sec >= 0) { sec = "0" + sec }; // add zero in front of numbers < 10
-    if (sec < 0) { sec = "59" };
-    return sec;
-}
-
-
-
-//show or hid the message and audio.
-function unhideText() {
-    var timeMessage = document.getElementById("time-left");
-    timeMessage.className = "unhidden";
-    playAudio(ring - 05);
-}
-
-function hideText() {
-    var timeMessage = document.getElementById("time-left");
-    timeMessage.className = "hidden";
-}
-
-
-
-
-//set up object for the multiple choices
-function MultipleChoice(example, question, choice, correct) {
-    this.example = example;
-    this.question = question;
-    this.choice = choice.slice();
-    this.correct = correct;
-    this.wasCorrect = false;
-
-    this.checkAnswer = function (indx) {
-        if (indx == this.correct) {
-            this.wasCorrect = true;
-            return true;
-        }
-        else {
-            this.wasCorrect = false;
-            return false;
-
-        }
-    }
-
-    this.load = function () {
-        document.getElementById("example").innerHTML = this.example;
-        document.getElementById("question").innerHTML = this.question;
-        document.getElementById("choice1").innerHTML = this.choice[0];
-        document.getElementById("choice2").innerHTML = this.choice[1];
-        document.getElementById("choice3").innerHTML = this.choice[2];
-        document.getElementById("choice4").innerHTML = this.choice[3];
-    }
-}
 
 var currentQuestion;
 var currentIndx = -1;
@@ -104,6 +11,7 @@ var nCorrect = 0;
 var inCorrect = 0;
 var isGameOver = false;
 var completedImg = document.getElementById("completed-img");
+var incompletedImg = document.getElementById("incompleted-img");
 
 
 example = "Hey @FluentUEnglish!Can you DM me your kitchen’s pic ? Thx!";
@@ -226,9 +134,114 @@ correct = 1;
 
 questions[11] = new MultipleChoice(example, question, choice, correct);
 
-//load the questions.
-playAudio("ring-03");
-nextQuestion();
+
+// playAudio("ring-03");
+resetTest();
+
+
+
+//reset
+function resetTest() {
+    currentIndx = -1;
+    nCorrect = 0;
+    inCorrect = 0;
+    document.getElementById("correct").innerHTML = nCorrect;
+    document.getElementById("incorrect").innerHTML = inCorrect;
+    incompletedImg.className = "hidden";
+    completedImg.className = "hidden";
+    document.getElementById("time-left").textContent = "";
+    isGameOver = false; document.getElementById('display').innerHTML = 01 + ":" + 30;
+    nextQuestion();
+    startTimer();
+
+}
+
+
+function startTimer() {
+    var presentTime = document.getElementById('display').innerHTML;
+    var timeLeft = document.getElementById("time-left");
+    var timeArray = presentTime.split(/[:]+/);
+    var m = timeArray[0];
+    var s = checkSecond((timeArray[1] - 1));
+
+    if (s == 59) { m = m - 1 }
+    //if(m<0){alert('timer completed')}
+    document.getElementById('display').innerHTML = m + ":" + s;
+
+    if (isGameOver == true) {
+        setTimeout(function () { resetTest() }, 4000);
+        return;
+    }
+    if (m == 0 && s == 0) {
+        timeLeft.textContent = "Time-up!";
+        playAudio("ring-05");
+        incompletedImg.className = "unhidden";
+        setTimeout(function () { resetTest() }, 4000);
+        return;
+    }
+
+    if (m == 1 && s == 0) {
+        timeLeft.textContent = "1 minute left!";
+        setTimeout(function () { timeLeft.textContent = "" }, 3000);
+    }
+    else if (m == 0 && s == 30) {
+        timeLeft.textContent = "30 seconds left!";
+        setTimeout(function () { timeLeft.textContent = "" }, 3000);
+    }
+
+    setTimeout(startTimer, 1000);
+}
+
+
+function checkSecond(sec) {
+    if (sec < 10 && sec >= 0) { sec = "0" + sec }; // add zero in front of numbers < 10
+    if (sec < 0) { sec = "59" };
+    return sec;
+}
+
+
+//show or hid the message and audio.
+function unhideText() {
+    var timeMessage = document.getElementById("time-left");
+    timeMessage.className = "unhidden";
+    playAudio(ring - 05);
+}
+
+function hideText() {
+    var timeMessage = document.getElementById("time-left");
+    timeMessage.className = "hidden";
+}
+
+
+//set up object for the multiple choices
+function MultipleChoice(example, question, choice, correct) {
+    this.example = example;
+    this.question = question;
+    this.choice = choice.slice();
+    this.correct = correct;
+    this.wasCorrect = false;
+
+    this.checkAnswer = function (indx) {
+        if (indx == this.correct) {
+            this.wasCorrect = true;
+            return true;
+        }
+        else {
+            this.wasCorrect = false;
+            return false;
+        }
+    }
+
+    this.load = function () {
+        document.getElementById("example").innerHTML = this.example;
+        document.getElementById("question").innerHTML = this.question;
+        document.getElementById("choice1").innerHTML = this.choice[0];
+        document.getElementById("choice2").innerHTML = this.choice[1];
+        document.getElementById("choice3").innerHTML = this.choice[2];
+        document.getElementById("choice4").innerHTML = this.choice[3];
+    }
+}
+
 
 
 //load the question
@@ -248,6 +261,7 @@ function nextQuestion() {
         isGameOver = true;
         completedImg.className = "unhidden";
         playAudio("ring-04");
+
     }
     //reset the radio button
     radAnswer = document.getElementsByName("radAnswer");
@@ -296,6 +310,4 @@ function playAudio(elName) {
     yourRing.play();
 }
 
-function startQuiz() {
-    window.location.href = "./quiz.html";
-}
+
